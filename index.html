@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GradCAM++</title>
+</head>
+<body>
+    <form id="GradForm" action="index.php" method="post" enctype="multipart/form-data">
+        <input type="file" name="images[]" multiple accept=".jpg, .jpeg, .png">
+        <label for="labelInput">Enter Labels (separated by commas): <input type="text" id="labelInput" name="labels"></label>
+        <button type="submit">Run GradCAM++</button>
+    </form>
+
+    <script>
+        document.getElementById('gradCAMForm').addEventListener('submit', function (event) {
+            const labelInput = document.getElementById('labelInput');
+            const labels = labelInput.value.split(',').map(label => label.trim()).join(',');
+
+            labelInput.value = labels;
+        });
+    </script>
+</body>
+</html>
